@@ -3,8 +3,9 @@
  * 功能：
  * 
  * */
-var tool = require('./tool.js');
 
+
+import tool from './tool';
 function Core() {
 
 }
@@ -31,4 +32,5 @@ Core.prototype = {
 
 var result = new Core();
 
-module.exports.core = result;
+
+export default result;

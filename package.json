@@ -1,0 +1,36 @@
+{
+  "name": "workplace-No",
+  "version": "1.0.0",
+  "description": "Today is 2018-1-31,I create No.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "unit": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foreverForCode/No.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foreverForCode/No/issues"
+  },
+  "homepage": "https://github.com/foreverForCode/No#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "install": "^0.10.4",
+    "jasmine-core": "^2.9.1",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.4.1",
+    "karma-jasmine": "^1.1.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.9",
+    "webpack": "^3.10.0"
+  }
+}

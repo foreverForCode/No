@@ -15,4 +15,4 @@ Tool.prototype = {
 var result = new Tool();
 
 
-module.exports.tool = result;
+export default result;
