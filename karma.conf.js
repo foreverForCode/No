@@ -20,9 +20,9 @@ module.exports = function(config) {
     plugins:[
       'karma-chrome-launcher',
       'karma-jasmine',
-      // 'karma-coverage-istanbul-reporter',
+      'karma-coverage-istanbul-reporter',
       'karma-webpack',
-      // 'karma-sourcemap-loader'
+      'karma-sourcemap-loader'
     ],
 
     // list of files / patterns to exclude
@@ -33,18 +33,28 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.spec.js':['webpack']
+      'src/**/*.spec.js':['webpack','sourcemap']
     },
     webapck:{
       devtool:'inline-source-map',
       module:{
           rules:[
+            {
+              test:/.js$/,
+              use:{
+                loader:'istanbul-instrumenter-laoder',
+                options:{esModules:true}
+              },
+              enforce:'pre',
+              exclude:/node_modules|\.spec\.js$/,
+            },
               {
                   test:/\.js$/,
                   use:{
                       loader:'babel-loader',
                       options:{
-                          presents:['es2015']
+                          presents:['es2015'],
+                          plugins:['istanbul']
                       }
                   },
                   exclude:/node_modules/
@@ -57,9 +67,20 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['coverage-istanbul'],
 
+    coverageIstanbulReporter:{
+      reports:['html','text-summary'],
+      dir:'coverage/',
+      fixWebpackSourcePaths:true,
+      skipFilesWithNoCoverage:true,
+      'report-config':{
+        html:{
+          subdir:'html'
+        }
+      }
 
+    },
     // web server port
     port: 9876,
 
