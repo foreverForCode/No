@@ -1,4 +1,4 @@
-import core from './../core';
+import core from './../app/core';
 
 describe('core测试套件',function(){
     it('core.extends',function(){
