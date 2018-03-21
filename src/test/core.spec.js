@@ -14,3 +14,4 @@ describe('core测试套件',function(){
         expect(source).toEqual(source);
     })
 })
+
